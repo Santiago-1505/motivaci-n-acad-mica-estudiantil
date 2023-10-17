@@ -1,6 +1,6 @@
 package org.santiago_ricardo.service;
 
-public interface AcademicRecordService {
+public interface EstudianteRecordService {
     double calcularPromedio();
     int contarEstudiantes();
     int contarEstudiantesSinRecursosYNoDeseanEstudiar();

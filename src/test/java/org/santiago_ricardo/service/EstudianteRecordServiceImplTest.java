@@ -2,22 +2,22 @@ package org.santiago_ricardo.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.santiago_ricardo.repository.GradeInMemoryRepositoryImpl;
+import org.santiago_ricardo.repository.EstudianteInMemoryRepositoryImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class AcademicRecordServiceImplTest {
+class EstudianteRecordServiceImplTest {
 
-  private AcademicRecordService academicRecordService;
+  private EstudianteRecordService estudianteRecordService;
 
   @BeforeEach
   void setUp() {
-    this.academicRecordService = new AcademicRecordServiceImpl(new GradeInMemoryRepositoryImpl());
+    this.estudianteRecordService = new EstudianteRecordServiceImpl(new EstudianteInMemoryRepositoryImpl());
   }
 
   @Test
   void summation_of_number_of_grades_should_return_a_valid_number() {
-    Integer numberOfGrades = this.academicRecordService.sumNumberOfGrades();
+    Integer numberOfGrades = this.estudianteRecordService.sumNumberOfGrades();
 
     assertNotNull(numberOfGrades);
     assertEquals(
@@ -37,7 +37,7 @@ class AcademicRecordServiceImplTest {
      *
      * El promedio es 4.175. Este es el valor verificado en el caso de prueba.
      * */
-    Double average = this.academicRecordService.calculateAverage();
+    Double average = this.estudianteRecordService.calculateAverage();
 
     assertNotNull(average); // Se verifica que el promedio (average) no sea nulo
     assertEquals(4.175D, average); // Se verifica que el promedio (average) sea igual a 4.175
