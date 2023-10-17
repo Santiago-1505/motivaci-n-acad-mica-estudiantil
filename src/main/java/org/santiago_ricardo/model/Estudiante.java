@@ -8,5 +8,5 @@ public record Estudiante(String nombre,
                          boolean faltaDeRecursos,
                          boolean noLeGustaEstudiar,
                          Double notaPromedio,
-                         String region ) {}
+                         String departamento ) {}
 

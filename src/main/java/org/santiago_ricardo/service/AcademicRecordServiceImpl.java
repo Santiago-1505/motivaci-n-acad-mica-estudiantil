@@ -15,20 +15,65 @@ public class AcademicRecordServiceImpl implements AcademicRecordService {
     this.gradeRepository = gradeRepository;
   }
 
+
   @Override
-  public Double calculateAverage() {
-    return null;
+  public double calcularPromedio() {
+    return 0;
   }
 
   @Override
-  public Integer sumNumberOfGrades() {
-    System.out.println("Sumando el número de calificaciones");
-    logger.info("Sumando el número de calificaciones");
-    logger.warn("Sumando el número de calificaciones");
-    logger.error("Sumando el número de calificaciones");
+  public int contarEstudiantes() {
+    return 0;
+  }
 
-    List<Estudiante> estudianteList = this.gradeRepository.findAllGrades();
-    // TODO sum number of grades and return the summation
+  @Override
+  public int contarEstudiantesSinRecursosYNoDeseanEstudiar() {
+    return 0;
+  }
+
+  @Override
+  public int contarEstudiantesQueNoDeseanEstudiarYRecibenEsenanzasAntiguas() {
+    return 0;
+  }
+
+  @Override
+  public int contarEstudiantesSinRecursosYRecibenEsenanzasAntiguas() {
+    return 0;
+  }
+
+  @Override
+  public int contarEstudiantesSinRecursosYRecibenEsenanzasAntiguasYNoDeseanEstudiar() {
+    return 0;
+  }
+
+  @Override
+  public int calcularEdadQueMasSeRepite() {
+    return 0;
+  }
+
+  @Override
+  public int contarPromedioBajoYRecibenEsenanzasAntiguas() {
+    return 0;
+  }
+
+  @Override
+  public int contarPromedioBajoYNoDeseanEstudiar() {
+    return 0;
+  }
+
+  @Override
+  public String[] encontrarMejores3PromediosDepartamentos() {
+    return new String[0];
+  }
+
+  @Override
+  public String[] encontrarPeores3PromediosDepartamentos() {
+    return new String[0];
+  }
+
+  @Override
+  public String encontrarDepartamentoConMayorIndiceEstudiantesNoDeseanEstudiar() {
     return null;
   }
 }
+

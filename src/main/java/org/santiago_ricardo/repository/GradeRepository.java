@@ -5,5 +5,5 @@ import org.santiago_ricardo.model.Estudiante;
 
 public interface GradeRepository {
 
-  List<Estudiante> findAllGrades();
+  List<Estudiante>devolverInformacionEstudiantes();
 }

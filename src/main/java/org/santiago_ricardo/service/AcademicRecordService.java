@@ -1,7 +1,17 @@
 package org.santiago_ricardo.service;
 
 public interface AcademicRecordService {
-  Double calculateAverage();
-
-  Integer sumNumberOfGrades();
+    double calcularPromedio();
+    int contarEstudiantes();
+    int contarEstudiantesSinRecursosYNoDeseanEstudiar();
+    int contarEstudiantesQueNoDeseanEstudiarYRecibenEsenanzasAntiguas();
+    int contarEstudiantesSinRecursosYRecibenEsenanzasAntiguas();
+    int contarEstudiantesSinRecursosYRecibenEsenanzasAntiguasYNoDeseanEstudiar();
+    int calcularEdadQueMasSeRepite();
+    //Promedio bajo se refiere a un promedio inferior a 3
+    int contarPromedioBajoYRecibenEsenanzasAntiguas();
+    int contarPromedioBajoYNoDeseanEstudiar();
+    String[] encontrarMejores3PromediosDepartamentos();
+    String[] encontrarPeores3PromediosDepartamentos();
+    String encontrarDepartamentoConMayorIndiceEstudiantesNoDeseanEstudiar();
 }
