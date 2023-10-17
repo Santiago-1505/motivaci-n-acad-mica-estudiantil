@@ -1,4 +1,10 @@
-# Proyecto Java con una estructura básica
+# Proyecto Motivación Académica Estudiantil 
+
+## Objetivo
+
+- Con este proyecto se busca encontrar una relación entre las técnicas de enseñanza 
+  y la motivación para continuar con sus estudios.
+  Y además como afectan estas técnicas al rendimiento académico.
 
 ## Tecnologías utilizadas
 
