@@ -1,9 +1,9 @@
 package org.santiago_ricardo.repository;
 
 import java.util.List;
-import org.santiago_ricardo.model.Grade;
+import org.santiago_ricardo.model.Estudiante;
 
 public interface GradeRepository {
 
-  List<Grade> findAllGrades();
+  List<Estudiante> findAllGrades();
 }
