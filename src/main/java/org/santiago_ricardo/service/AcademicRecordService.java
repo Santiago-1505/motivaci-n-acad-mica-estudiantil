@@ -1,4 +1,4 @@
-package org.example.service;
+package org.santiago_ricardo.service;
 
 public interface AcademicRecordService {
   Double calculateAverage();

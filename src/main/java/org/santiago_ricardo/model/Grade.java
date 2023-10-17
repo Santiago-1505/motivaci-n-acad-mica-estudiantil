@@ -1,4 +1,4 @@
-package org.example.model;
+package org.santiago_ricardo.model;
 
 import java.time.LocalDate;
 

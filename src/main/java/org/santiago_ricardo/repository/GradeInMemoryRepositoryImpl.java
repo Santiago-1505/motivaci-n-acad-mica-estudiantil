@@ -1,9 +1,9 @@
-package org.example.repository;
+package org.santiago_ricardo.repository;
 
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
-import org.example.model.Grade;
+import org.santiago_ricardo.model.Grade;
 
 public class GradeInMemoryRepositoryImpl implements GradeRepository {
   @Override

@@ -1,7 +1,7 @@
-package org.example.repository;
+package org.santiago_ricardo.repository;
 
 import java.util.List;
-import org.example.model.Grade;
+import org.santiago_ricardo.model.Grade;
 
 public interface GradeRepository {
 

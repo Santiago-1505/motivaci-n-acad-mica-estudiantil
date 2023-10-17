@@ -1,8 +1,8 @@
-package org.example.service;
+package org.santiago_ricardo.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.example.repository.GradeInMemoryRepositoryImpl;
+import org.santiago_ricardo.repository.GradeInMemoryRepositoryImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

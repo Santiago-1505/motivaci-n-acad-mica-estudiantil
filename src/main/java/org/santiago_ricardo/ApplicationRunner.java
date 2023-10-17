@@ -1,9 +1,9 @@
-package org.example;
+package org.santiago_ricardo;
 
 import java.text.MessageFormat;
-import org.example.repository.GradeInMemoryRepositoryImpl;
-import org.example.service.AcademicRecordService;
-import org.example.service.AcademicRecordServiceImpl;
+import org.santiago_ricardo.repository.GradeInMemoryRepositoryImpl;
+import org.santiago_ricardo.service.AcademicRecordService;
+import org.santiago_ricardo.service.AcademicRecordServiceImpl;
 
 public class ApplicationRunner {
   public static void main(String[] args) {

@@ -1,8 +1,8 @@
-package org.example.service;
+package org.santiago_ricardo.service;
 
 import java.util.List;
-import org.example.model.Grade;
-import org.example.repository.GradeRepository;
+import org.santiago_ricardo.model.Grade;
+import org.santiago_ricardo.repository.GradeRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
