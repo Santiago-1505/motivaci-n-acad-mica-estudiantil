@@ -11,15 +11,12 @@
 - JDK 17: Java Records/ Interfaces
 - Maven
 - JUnit (Pruebas)
-- slf4j (Generación de mensajes y alertas)
-- Google Java Formatter
-- Spotify Google Formatter Plugin
 
 
 ## Casos de pruebas
 
-* Utilizando la clase AcademicRecordImplTest
+* Utilizando la clase EstudianteRecordImplTest
 
 ## Ejecución
 
-* Utilizando la clase ApplicationRunner
+* Utilizando la clase EjecutadorDelPrograma

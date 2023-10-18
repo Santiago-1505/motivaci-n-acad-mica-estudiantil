@@ -2,7 +2,7 @@ package org.santiago_ricardo.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.santiago_ricardo.repository.EstudianteInMemoryRepositoryImpl;
+import org.santiago_ricardo.repository.EstudianteEnMemoriaRepositoryImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +12,7 @@ class EstudianteRecordServiceImplTest {
 
   @BeforeEach
   void setUp() {
-    this.estudianteRecordService = new EstudianteRecordServiceImpl(new EstudianteInMemoryRepositoryImpl());
+    this.estudianteRecordService = new EstudianteRecordServiceImpl(new EstudianteEnMemoriaRepositoryImpl());
   }
 
 
@@ -21,6 +21,7 @@ class EstudianteRecordServiceImplTest {
   void calcularPromedio() {
     Double promedio = this.estudianteRecordService.calcularPromedio();
     assertNotNull(promedio);
+    assertEquals(17.15,promedio);
   }
 
   @Test
@@ -32,52 +33,56 @@ class EstudianteRecordServiceImplTest {
 
   @Test
   void contarEstudiantesQueNoDeseanEstudiar() {
-    Integer cantidadEstudiantesQueNoDeseanEstudiar = this.estudianteRecordService.contarEstudiantesQueNoDeseanEstudiar();
+    Double cantidadEstudiantesQueNoDeseanEstudiar = this.estudianteRecordService.contarEstudiantesQueNoDeseanEstudiar();
     assertNotNull(cantidadEstudiantesQueNoDeseanEstudiar);
     assertEquals(10,cantidadEstudiantesQueNoDeseanEstudiar);
   }
 
   @Test
   void contarEstudiantesSinRecursosYNoDeseanEstudiar() {
-    Integer cantidadEstudiantesSinRecursosYNoDeseanEstudiar = this.estudianteRecordService.contarEstudiantesSinRecursosYNoDeseanEstudiar();
+    Double cantidadEstudiantesSinRecursosYNoDeseanEstudiar = this.estudianteRecordService.contarEstudiantesSinRecursosYNoDeseanEstudiar();
     assertNotNull(cantidadEstudiantesSinRecursosYNoDeseanEstudiar);
+    assertEquals(5,cantidadEstudiantesSinRecursosYNoDeseanEstudiar);
   }
 
   @Test
   void contarEstudiantesQueNoDeseanEstudiarYRecibenEsenanzasAntiguas() {
-    Integer cantidadEstudiantesQueNoDeseanEstudiarYRecibenEsenanzasAntiguas = this.estudianteRecordService.contarEstudiantesQueNoDeseanEstudiarYRecibenEsenanzasAntiguas();
+    Double cantidadEstudiantesQueNoDeseanEstudiarYRecibenEsenanzasAntiguas = this.estudianteRecordService.contarEstudiantesQueNoDeseanEstudiarYRecibenEsenanzasAntiguas();
     assertNotNull(cantidadEstudiantesQueNoDeseanEstudiarYRecibenEsenanzasAntiguas);
+    assertEquals(8,cantidadEstudiantesQueNoDeseanEstudiarYRecibenEsenanzasAntiguas);
   }
 
   @Test
   void contarEstudiantesSinRecursosYRecibenEsenanzasAntiguas() {
-    Integer cantidadEstudiantesSinRecursosYRecibenEsenanzasAntiguas = this.estudianteRecordService.contarEstudiantesSinRecursosYRecibenEsenanzasAntiguas();
+    Double cantidadEstudiantesSinRecursosYRecibenEsenanzasAntiguas = this.estudianteRecordService.contarEstudiantesSinRecursosYRecibenEsenanzasAntiguas();
     assertNotNull(cantidadEstudiantesSinRecursosYRecibenEsenanzasAntiguas);
+    assertEquals(4,cantidadEstudiantesSinRecursosYRecibenEsenanzasAntiguas);
   }
 
   @Test
   void contarEstudiantesSinRecursosYRecibenEsenanzasAntiguasYNoDeseanEstudiar() {
-    Integer cantidadEstudiantesSinRecursosYRecibenEsenanzasAntiguasYNoDeseanEstudiar = this.estudianteRecordService.contarEstudiantesSinRecursosYRecibenEsenanzasAntiguasYNoDeseanEstudiar();
+    Double cantidadEstudiantesSinRecursosYRecibenEsenanzasAntiguasYNoDeseanEstudiar = this.estudianteRecordService.contarEstudiantesSinRecursosYRecibenEsenanzasAntiguasYNoDeseanEstudiar();
     assertNotNull(cantidadEstudiantesSinRecursosYRecibenEsenanzasAntiguasYNoDeseanEstudiar);
+    assertEquals(3,cantidadEstudiantesSinRecursosYRecibenEsenanzasAntiguasYNoDeseanEstudiar);
   }
 
   @Test
   void calcularEdadQueMasSeRepite() {
-    Integer cantidadQueMasSeRepite = this.estudianteRecordService.calcularEdadQueMasSeRepite();
+    Double cantidadQueMasSeRepite = this.estudianteRecordService.calcularEdadQueMasSeRepite();
     assertNotNull(cantidadQueMasSeRepite);
     assertEquals(16,cantidadQueMasSeRepite);
   }
 
   @Test
   void contarPromedioBajoYRecibenEsenanzasAntiguas() {
-    Integer cantidadPromedioBajoYRecibenEsenanzasAntiguas = this.estudianteRecordService.contarPromedioBajoYRecibenEsenanzasAntiguas();
+    Double cantidadPromedioBajoYRecibenEsenanzasAntiguas = this.estudianteRecordService.contarPromedioBajoYRecibenEsenanzasAntiguas();
     assertNotNull(cantidadPromedioBajoYRecibenEsenanzasAntiguas);
     assertEquals(8,cantidadPromedioBajoYRecibenEsenanzasAntiguas);
   }
 
   @Test
   void contarPromedioBajoYNoDeseanEstudiar() {
-    Integer cantidadPromedioBajoYNoDeseanEstudiar = this.estudianteRecordService.contarPromedioBajoYNoDeseanEstudiar();
+    Double cantidadPromedioBajoYNoDeseanEstudiar = this.estudianteRecordService.contarPromedioBajoYNoDeseanEstudiar();
     assertNotNull(cantidadPromedioBajoYNoDeseanEstudiar);
     assertEquals(9,cantidadPromedioBajoYNoDeseanEstudiar);
   }
@@ -104,5 +109,14 @@ class EstudianteRecordServiceImplTest {
   void encontrarDepartamentoConMayorCantidadEstudiantesNoDeseanEstudiar() {
     String departamentoConMayorCantidadEstudiantesNoDeseanEstudiar = this.estudianteRecordService.encontrarDepartamentoConMayorCantidadEstudiantesNoDeseanEstudiar();
     assertEquals("Vichada",departamentoConMayorCantidadEstudiantesNoDeseanEstudiar);
+  }
+
+  @Test
+  void contarEstudiantesSinRecursos() {
+
+  }
+
+  @Test
+  void contarEstudiantesQueRecibenEsenanzasAntiguas() {
   }
 }

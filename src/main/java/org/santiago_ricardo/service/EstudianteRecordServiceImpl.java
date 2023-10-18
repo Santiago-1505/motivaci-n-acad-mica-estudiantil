@@ -1,8 +1,6 @@
 package org.santiago_ricardo.service;
 
 import org.santiago_ricardo.repository.EstudianteRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.santiago_ricardo.model.Estudiante;
 import java.util.Collections;
 import java.util.List;
@@ -10,7 +8,7 @@ import java.util.ArrayList;
 
 public class EstudianteRecordServiceImpl implements EstudianteRecordService {
 
-  private static final Logger logger = LoggerFactory.getLogger(EstudianteRecordServiceImpl.class);
+
   private final EstudianteRepository estudianteRepository;
 
   public EstudianteRecordServiceImpl(EstudianteRepository estudianteRepository) {
@@ -20,9 +18,9 @@ public class EstudianteRecordServiceImpl implements EstudianteRecordService {
 
   @Override
   public double calcularPromedio() {
-    Double suma = 0D;
+    double suma = 0D;
     for ( Estudiante estudiante:this.estudianteRepository.devolverInformacionEstudiantes()) {
-      suma+= estudiante.notaPromedio();
+      suma+= estudiante.edad();
     }
     return suma/this.estudianteRepository.devolverInformacionEstudiantes().size();
   }
@@ -34,8 +32,8 @@ public class EstudianteRecordServiceImpl implements EstudianteRecordService {
   }
 
   @Override
-  public int contarEstudiantesQueNoDeseanEstudiar() {
-    int casosFavorables = 0;
+  public double contarEstudiantesQueNoDeseanEstudiar() {
+    double casosFavorables = 0D;
     for (Estudiante estudiante:this.estudianteRepository.devolverInformacionEstudiantes()) {
       if (estudiante.noLeGustaEstudiar())
         casosFavorables = casosFavorables+1;
@@ -44,8 +42,8 @@ public class EstudianteRecordServiceImpl implements EstudianteRecordService {
   }
 
   @Override
-  public int contarEstudiantesSinRecursos() {
-    int casosFavorables = 0;
+  public double contarEstudiantesSinRecursos() {
+    double casosFavorables = 0D;
     for (Estudiante estudiante:this.estudianteRepository.devolverInformacionEstudiantes()) {
       if (estudiante.faltaDeRecursos())
         casosFavorables = casosFavorables+1;
@@ -54,18 +52,18 @@ public class EstudianteRecordServiceImpl implements EstudianteRecordService {
   }
 
   @Override
-  public int contarEstudiantesQueRecibenEsenanzasAntiguas() {
-    int casosFavorables = 0;
+  public double contarEstudiantesQueRecibenEsenanzasAntiguas() {
+    double casosFavorables = 0D;
     for (Estudiante estudiante:this.estudianteRepository.devolverInformacionEstudiantes()) {
-      if (estudiante.seUsanTecnicasDeEnseñansaAntiguas())
+      if (estudiante.seUsanTecnicasDeEnsenansaAntiguas())
         casosFavorables = casosFavorables+1;
     }
     return casosFavorables;
   }
 
   @Override
-  public int contarEstudiantesSinRecursosYNoDeseanEstudiar() {
-    int casosFavorables = 0;
+  public double contarEstudiantesSinRecursosYNoDeseanEstudiar() {
+    double casosFavorables = 0D;
     for (Estudiante estudiante:this.estudianteRepository.devolverInformacionEstudiantes()) {
       if (estudiante.faltaDeRecursos()&&estudiante.noLeGustaEstudiar())
         casosFavorables ++;
@@ -74,37 +72,37 @@ public class EstudianteRecordServiceImpl implements EstudianteRecordService {
   }
 
   @Override
-  public int contarEstudiantesQueNoDeseanEstudiarYRecibenEsenanzasAntiguas() {
-    int casosFavorables = 0;
+  public double contarEstudiantesQueNoDeseanEstudiarYRecibenEsenanzasAntiguas() {
+    double casosFavorables = 0D;
     for (Estudiante estudiante:this.estudianteRepository.devolverInformacionEstudiantes()) {
-      if (estudiante.seUsanTecnicasDeEnseñansaAntiguas() && estudiante.noLeGustaEstudiar())
+      if (estudiante.seUsanTecnicasDeEnsenansaAntiguas() && estudiante.noLeGustaEstudiar())
         casosFavorables++;
     }
     return casosFavorables;
   }
 
   @Override
-  public int contarEstudiantesSinRecursosYRecibenEsenanzasAntiguas() {
-    int casosFavorables = 0;
+  public double contarEstudiantesSinRecursosYRecibenEsenanzasAntiguas() {
+    double casosFavorables = 0D;
     for (Estudiante estudiante:this.estudianteRepository.devolverInformacionEstudiantes()) {
-      if (estudiante.seUsanTecnicasDeEnseñansaAntiguas() && estudiante.faltaDeRecursos())
+      if (estudiante.seUsanTecnicasDeEnsenansaAntiguas() && estudiante.faltaDeRecursos())
         casosFavorables++;
     }
     return casosFavorables;
   }
 
   @Override
-  public int contarEstudiantesSinRecursosYRecibenEsenanzasAntiguasYNoDeseanEstudiar() {
-    int casosFavorables = 0;
+  public double contarEstudiantesSinRecursosYRecibenEsenanzasAntiguasYNoDeseanEstudiar() {
+    double casosFavorables = 0D;
     for (Estudiante estudiante:this.estudianteRepository.devolverInformacionEstudiantes()) {
-      if (estudiante.seUsanTecnicasDeEnseñansaAntiguas() && estudiante.noLeGustaEstudiar() && estudiante.faltaDeRecursos())
+      if (estudiante.seUsanTecnicasDeEnsenansaAntiguas() && estudiante.noLeGustaEstudiar() && estudiante.faltaDeRecursos())
         casosFavorables++;
     }
     return casosFavorables;
   }
 
   @Override
-  public int calcularEdadQueMasSeRepite() {
+  public double calcularEdadQueMasSeRepite() {
     List<Integer> edades = new ArrayList<>();
     for (Estudiante estudiante : this.estudianteRepository.devolverInformacionEstudiantes()) {
       edades.add(estudiante.edad());
@@ -122,17 +120,17 @@ public class EstudianteRecordServiceImpl implements EstudianteRecordService {
   }
 
   @Override
-  public int contarPromedioBajoYRecibenEsenanzasAntiguas() {
+  public double contarPromedioBajoYRecibenEsenanzasAntiguas() {
       int casosFavorables = 0;
       for (Estudiante estudiante:this.estudianteRepository.devolverInformacionEstudiantes()) {
-        if (estudiante.seUsanTecnicasDeEnseñansaAntiguas() && estudiante.notaPromedio() < 3D)
+        if (estudiante.seUsanTecnicasDeEnsenansaAntiguas() && estudiante.notaPromedio() < 3D)
           casosFavorables++;
       }
       return casosFavorables;
     }
 
   @Override
-  public int contarPromedioBajoYNoDeseanEstudiar() {
+  public double contarPromedioBajoYNoDeseanEstudiar() {
     int casosFavorables = 0;
     for (Estudiante estudiante:this.estudianteRepository.devolverInformacionEstudiantes()) {
       if (estudiante.noLeGustaEstudiar() && estudiante.notaPromedio() < 3D)
@@ -241,7 +239,7 @@ public class EstudianteRecordServiceImpl implements EstudianteRecordService {
   @Override
   public String encontrarDepartamentoConMayorCantidadEstudiantesNoDeseanEstudiar() {
     List<String> departamentos = new ArrayList<>();
-    List<Integer> cantidadPorDepartamento = new ArrayList();
+    List<Integer> cantidadPorDepartamento = new ArrayList<>();
     for(Estudiante estudiante: this.estudianteRepository.devolverInformacionEstudiantes()){
       if(!departamentos.contains(estudiante.departamento())){
         departamentos.add(estudiante.departamento());

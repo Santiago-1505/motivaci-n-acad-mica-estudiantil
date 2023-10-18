@@ -3,11 +3,11 @@ package org.santiago_ricardo.repository;
 import java.util.List;
 import org.santiago_ricardo.model.Estudiante;
 
-public class EstudianteInMemoryRepositoryImpl implements EstudianteRepository {
+public class EstudianteEnMemoriaRepositoryImpl implements EstudianteRepository {
     @Override
     public List<Estudiante> devolverInformacionEstudiantes() {
 
-        List<Estudiante> estudianteList =
+        List<Estudiante> estudiantes =
                 List.of(
                         new Estudiante("María García", 16, true, false, true, 2.3D, "Antioquia"),
                         new Estudiante("Juan Rodríguez", 17, false, true, false, 3.5D, "Vichada"),
@@ -30,7 +30,7 @@ public class EstudianteInMemoryRepositoryImpl implements EstudianteRepository {
                         new Estudiante("Andrés Morales", 18, true, true, true, 2.0D, "Amazonas"),
                         new Estudiante("Claudia Gómez", 16, true, true, true, 2.1D, "Nariño"));
 
-        return estudianteList;
+        return estudiantes;
     }
 }
 
