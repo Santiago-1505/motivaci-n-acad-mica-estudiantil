@@ -18,13 +18,13 @@ public class ApplicationRunner {
     System.out.println("La cantidad de encuestados es " + estudianteRecordService.contarEstudiantes());
     System.out.println("La edad promedio de los encuestados es de " + estudianteRecordService.calcularPromedio() +" años y la edad que mas se repite es "+ estudianteRecordService.calcularEdadQueMasSeRepite());
     System.out.println("");
-    System.out.println("La cantidad de estudiantes que se les sigue enseñando de maneras antiguas es: " + );
-    System.out.println("La cantidad de estudiantes que se les enseña de maneras modernas es: " + );
-    System.out.println("La cantidad de estudiantes que tienen problemas económicos es: " + );
+    System.out.println("La cantidad de estudiantes que se les sigue enseñando de maneras antiguas es: " + estudianteRecordService.contarEstudiantesQueRecibenEsenanzasAntiguas() );
+    System.out.println("La cantidad de estudiantes que se les enseña de maneras modernas es: " + (estudianteRecordService.contarEstudiantes()-estudianteRecordService.contarEstudiantesQueRecibenEsenanzasAntiguas()) );
+    System.out.println("La cantidad de estudiantes que tienen problemas económicos es: " + estudianteRecordService.contarEstudiantesSinRecursos());
     System.out.println("");
     System.out.println("En porcentaje podemos observar que: ");
     System.out.println("El "+ (estudianteRecordService.contarEstudiantesSinRecursosYRecibenEsenanzasAntiguas()/estudianteRecordService.contarEstudiantes())*100+"% no tienen recursos económicos y se les enseña de manera antigua");
-    System.out.println("El "+ ((Cantidad_De_Estudiantes_Que_No_Les_Gusta_Estudiar)/estudiantes.size())*100+"% no desean estudiar");
+    System.out.println("El "+ ((estudianteRecordService.contarEstudiantes())/estudianteRecordService.contarEstudiantes())*100+"% no desean estudiar");
     System.out.println("El "+ (estudianteRecordService.contarEstudiantesSinRecursosYNoDeseanEstudiar()/estudianteRecordService.contarEstudiantes())*100+"% no desean estudiar y tienen problemas económicos");
     System.out.println("El "+ (estudianteRecordService.contarEstudiantesQueNoDeseanEstudiarYRecibenEsenanzasAntiguas()/estudianteRecordService.contarEstudiantes())*100+"% no desean estudiar y se les enseña de manera antigua");
     System.out.println("El "+ (estudianteRecordService.contarEstudiantesSinRecursosYRecibenEsenanzasAntiguasYNoDeseanEstudiar()/estudianteRecordService.contarEstudiantes())*100+"% no desean estudiar, se les enseña de manera antigua y tienen problemas económicos");

@@ -3,6 +3,9 @@ package org.santiago_ricardo.service;
 public interface EstudianteRecordService {
     double calcularPromedio();
     int contarEstudiantes();
+    int contarEstudiantesQueNoDeseanEstudiar();
+    int contarEstudiantesSinRecursos();
+    int contarEstudiantesQueRecibenEsenanzasAntiguas();
     int contarEstudiantesSinRecursosYNoDeseanEstudiar();
     int contarEstudiantesQueNoDeseanEstudiarYRecibenEsenanzasAntiguas();
     int contarEstudiantesSinRecursosYRecibenEsenanzasAntiguas();
@@ -13,5 +16,7 @@ public interface EstudianteRecordService {
     int contarPromedioBajoYNoDeseanEstudiar();
     String[] encontrarMejores3PromediosDepartamentos();
     String[] encontrarPeores3PromediosDepartamentos();
-    String encontrarDepartamentoConMayorIndiceEstudiantesNoDeseanEstudiar();
+    String encontrarDepartamentoConMayorCantidadEstudiantesNoDeseanEstudiar();
+
+
 }

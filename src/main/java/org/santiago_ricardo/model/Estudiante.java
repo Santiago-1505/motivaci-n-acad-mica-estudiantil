@@ -10,3 +10,4 @@ public record Estudiante(String nombre,
                          Double notaPromedio,
                          String departamento ) {}
 
+
