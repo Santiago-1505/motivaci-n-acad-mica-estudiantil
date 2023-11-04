@@ -1,5 +1,6 @@
 package org.santiago_ricardo;
 
+import org.santiago_ricardo.repository.EstudianteEnArchivoRepositoryImpl;
 import org.santiago_ricardo.repository.EstudianteEnMemoriaRepositoryImpl;
 import org.santiago_ricardo.service.EstudianteRecordService;
 import org.santiago_ricardo.service.EstudianteRecordServiceImpl;
@@ -7,7 +8,7 @@ import org.santiago_ricardo.service.EstudianteRecordServiceImpl;
 
 public class EjecutadorDelPrograma {
   public static void main(String[] args) {
-    EstudianteRecordService estudianteRecordService = new EstudianteRecordServiceImpl(new EstudianteEnMemoriaRepositoryImpl());
+    EstudianteRecordService estudianteRecordService = new EstudianteRecordServiceImpl(new EstudianteEnArchivoRepositoryImpl());
     // Imprimir resultados
     System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
     System.out.println("A continuación se presentarán los resultados de una encuesta realizada jóvenes estudiantes del país");

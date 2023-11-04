@@ -1,5 +1,5 @@
 package org.santiago_ricardo.service;
-
+import java.util.stream.Collectors;
 import org.santiago_ricardo.repository.EstudianteRepository;
 import org.santiago_ricardo.model.Estudiante;
 import java.util.Collections;
@@ -33,52 +33,28 @@ public class EstudianteRecordServiceImpl implements EstudianteRecordService {
 
   @Override
   public double contarEstudiantesQueNoDeseanEstudiar() {
-    double casosFavorables = 0D;
-    for (Estudiante estudiante:this.estudianteRepository.devolverInformacionEstudiantes()) {
-      if (estudiante.noLeGustaEstudiar())
-        casosFavorables = casosFavorables+1;
-    }
-    return casosFavorables;
+    return this.estudianteRepository.devolverInformacionEstudiantes().stream().filter(Estudiante::noLeGustaEstudiar).count();
   }
 
   @Override
   public double contarEstudiantesSinRecursos() {
-    double casosFavorables = 0D;
-    for (Estudiante estudiante:this.estudianteRepository.devolverInformacionEstudiantes()) {
-      if (estudiante.faltaDeRecursos())
-        casosFavorables = casosFavorables+1;
-    }
-    return casosFavorables;
+
+    return this.estudianteRepository.devolverInformacionEstudiantes().stream().filter(Estudiante::faltaDeRecursos).count();
   }
 
   @Override
   public double contarEstudiantesQueRecibenEsenanzasAntiguas() {
-    double casosFavorables = 0D;
-    for (Estudiante estudiante:this.estudianteRepository.devolverInformacionEstudiantes()) {
-      if (estudiante.seUsanTecnicasDeEnsenansaAntiguas())
-        casosFavorables = casosFavorables+1;
-    }
-    return casosFavorables;
+    return this.estudianteRepository.devolverInformacionEstudiantes().stream().filter(Estudiante::seUsanTecnicasDeEnsenansaAntiguas).count();
   }
 
   @Override
   public double contarEstudiantesSinRecursosYNoDeseanEstudiar() {
-    double casosFavorables = 0D;
-    for (Estudiante estudiante:this.estudianteRepository.devolverInformacionEstudiantes()) {
-      if (estudiante.faltaDeRecursos()&&estudiante.noLeGustaEstudiar())
-        casosFavorables ++;
-    }
-    return casosFavorables;
+    return this.estudianteRepository.devolverInformacionEstudiantes().stream().filter(Estudiante -> Estudiante.noLeGustaEstudiar() && Estudiante.faltaDeRecursos()).count();
   }
 
   @Override
   public double contarEstudiantesQueNoDeseanEstudiarYRecibenEsenanzasAntiguas() {
-    double casosFavorables = 0D;
-    for (Estudiante estudiante:this.estudianteRepository.devolverInformacionEstudiantes()) {
-      if (estudiante.seUsanTecnicasDeEnsenansaAntiguas() && estudiante.noLeGustaEstudiar())
-        casosFavorables++;
-    }
-    return casosFavorables;
+    return this.estudianteRepository.devolverInformacionEstudiantes().stream().filter(Estudiante -> Estudiante.noLeGustaEstudiar() && Estudiante.seUsanTecnicasDeEnsenansaAntiguas()).count();
   }
 
   @Override

@@ -2,6 +2,7 @@ package org.santiago_ricardo.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.santiago_ricardo.repository.EstudianteEnArchivoRepositoryImpl;
 import org.santiago_ricardo.repository.EstudianteEnMemoriaRepositoryImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,7 +13,7 @@ class EstudianteRecordServiceImplTest {
 
   @BeforeEach
   void setUp() {
-    this.estudianteRecordService = new EstudianteRecordServiceImpl(new EstudianteEnMemoriaRepositoryImpl());
+    this.estudianteRecordService = new EstudianteRecordServiceImpl(new EstudianteEnArchivoRepositoryImpl());
   }
 
 
