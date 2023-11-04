@@ -2,9 +2,11 @@ package org.santiago_ricardo.service;
 import java.util.stream.Collectors;
 import org.santiago_ricardo.repository.EstudianteRepository;
 import org.santiago_ricardo.model.Estudiante;
-import java.util.Collections;
+
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.OptionalDouble;
 
 public class EstudianteRecordServiceImpl implements EstudianteRecordService {
 
@@ -17,12 +19,8 @@ public class EstudianteRecordServiceImpl implements EstudianteRecordService {
 
 
   @Override
-  public double calcularPromedio() {
-    double suma = 0D;
-    for ( Estudiante estudiante:this.estudianteRepository.devolverInformacionEstudiantes()) {
-      suma+= estudiante.edad();
-    }
-    return suma/this.estudianteRepository.devolverInformacionEstudiantes().size();
+  public Double calcularPromedio() {
+    return estudianteRepository.devolverInformacionEstudiantes().stream().mapToDouble(Estudiante::edad).average().getAsDouble();
   }
 
   @Override
@@ -59,60 +57,28 @@ public class EstudianteRecordServiceImpl implements EstudianteRecordService {
 
   @Override
   public double contarEstudiantesSinRecursosYRecibenEsenanzasAntiguas() {
-    double casosFavorables = 0D;
-    for (Estudiante estudiante:this.estudianteRepository.devolverInformacionEstudiantes()) {
-      if (estudiante.seUsanTecnicasDeEnsenansaAntiguas() && estudiante.faltaDeRecursos())
-        casosFavorables++;
-    }
-    return casosFavorables;
+    return this.estudianteRepository.devolverInformacionEstudiantes().stream().filter(Estudiante -> Estudiante.faltaDeRecursos() && Estudiante.seUsanTecnicasDeEnsenansaAntiguas()).count();
   }
 
   @Override
   public double contarEstudiantesSinRecursosYRecibenEsenanzasAntiguasYNoDeseanEstudiar() {
-    double casosFavorables = 0D;
-    for (Estudiante estudiante:this.estudianteRepository.devolverInformacionEstudiantes()) {
-      if (estudiante.seUsanTecnicasDeEnsenansaAntiguas() && estudiante.noLeGustaEstudiar() && estudiante.faltaDeRecursos())
-        casosFavorables++;
-    }
-    return casosFavorables;
+    return this.estudianteRepository.devolverInformacionEstudiantes().stream().filter(Estudiante -> Estudiante.faltaDeRecursos() && Estudiante.seUsanTecnicasDeEnsenansaAntiguas() && Estudiante.noLeGustaEstudiar()).count();
   }
 
   @Override
   public double calcularEdadQueMasSeRepite() {
-    List<Integer> edades = new ArrayList<>();
-    for (Estudiante estudiante : this.estudianteRepository.devolverInformacionEstudiantes()) {
-      edades.add(estudiante.edad());
-    }
-    int moda = 0;
-    int maxFrecuencia = 0;
-    for (int edad : edades) {
-      int frecuencia = Collections.frequency(edades, edad);
-      if (frecuencia > maxFrecuencia) {
-        moda = edad;
-        maxFrecuencia = frecuencia;
-      }
-    }
-    return moda;
+    Map<Integer, Long> countByValue = estudianteRepository.devolverInformacionEstudiantes().stream().collect(Collectors.groupingBy(Estudiante::edad, Collectors.counting()));
+    return countByValue.entrySet().stream().max(Map.Entry.comparingByValue()).map(Map.Entry::getKey).orElse(-1);
   }
 
   @Override
   public double contarPromedioBajoYRecibenEsenanzasAntiguas() {
-      int casosFavorables = 0;
-      for (Estudiante estudiante:this.estudianteRepository.devolverInformacionEstudiantes()) {
-        if (estudiante.seUsanTecnicasDeEnsenansaAntiguas() && estudiante.notaPromedio() < 3D)
-          casosFavorables++;
-      }
-      return casosFavorables;
-    }
+    return estudianteRepository.devolverInformacionEstudiantes().stream().filter(Estudiante -> Estudiante.seUsanTecnicasDeEnsenansaAntiguas() && Estudiante.notaPromedio() < 3).count();
+  }
 
   @Override
   public double contarPromedioBajoYNoDeseanEstudiar() {
-    int casosFavorables = 0;
-    for (Estudiante estudiante:this.estudianteRepository.devolverInformacionEstudiantes()) {
-      if (estudiante.noLeGustaEstudiar() && estudiante.notaPromedio() < 3D)
-        casosFavorables++;
-    }
-    return casosFavorables;
+    return estudianteRepository.devolverInformacionEstudiantes().stream().filter(Estudiante -> Estudiante.noLeGustaEstudiar() && Estudiante.notaPromedio() < 3).count();
   }
 
   @Override

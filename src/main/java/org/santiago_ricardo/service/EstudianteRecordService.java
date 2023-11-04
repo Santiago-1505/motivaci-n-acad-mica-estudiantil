@@ -1,7 +1,9 @@
 package org.santiago_ricardo.service;
 
+import java.util.OptionalDouble;
+
 public interface EstudianteRecordService {
-    double calcularPromedio();
+    Double calcularPromedio();
     int contarEstudiantes();
     double contarEstudiantesQueNoDeseanEstudiar();
     double contarEstudiantesSinRecursos();
