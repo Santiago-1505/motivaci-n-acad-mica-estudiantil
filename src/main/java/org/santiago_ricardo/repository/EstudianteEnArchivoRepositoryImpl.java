@@ -12,6 +12,7 @@ import java.util.stream.Stream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
 import org.santiago_ricardo.model.Estudiante;
 
 public class EstudianteEnArchivoRepositoryImpl implements EstudianteRepository {
@@ -53,4 +54,11 @@ public class EstudianteEnArchivoRepositoryImpl implements EstudianteRepository {
     public List<Estudiante> devolverInformacionEstudiantes() {
         return estudiantesList;
     }
+
+    @Override
+    public Estudiante anadirEstudiante(Estudiante nuevoEstudiante) {
+        this.estudiantesList.add(nuevoEstudiante);
+        return nuevoEstudiante;
+    }
+
 }

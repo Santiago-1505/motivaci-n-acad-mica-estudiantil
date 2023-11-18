@@ -1,5 +1,8 @@
 package org.santiago_ricardo.service;
 
+import org.santiago_ricardo.model.Estudiante;
+
+import java.util.List;
 import java.util.OptionalDouble;
 
 public interface EstudianteRecordService {
@@ -19,6 +22,9 @@ public interface EstudianteRecordService {
     String[] encontrarMejores3PromediosDepartamentos();
     String[] encontrarPeores3PromediosDepartamentos();
     String encontrarDepartamentoConMayorCantidadEstudiantesNoDeseanEstudiar();
+
+    List<Estudiante> listarEstudiantes();
+    Estudiante agregarEstudiante(Estudiante nuevoEstudiante);
 
 
 }

@@ -6,5 +6,6 @@ import org.santiago_ricardo.model.Estudiante;
 public interface EstudianteRepository {
 
   List<Estudiante> devolverInformacionEstudiantes();
+  Estudiante anadirEstudiante(Estudiante nuevoEstudiante);
 }
 

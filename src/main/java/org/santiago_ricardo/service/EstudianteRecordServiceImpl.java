@@ -199,5 +199,15 @@ public class EstudianteRecordServiceImpl implements EstudianteRecordService {
     }
     return departamentos.get(cantidadPorDepartamento.indexOf(mayorCantidadDeNoDeseaEstudiar));
   }
+
+  @Override
+  public List<Estudiante> listarEstudiantes() {
+    return this.estudianteRepository.devolverInformacionEstudiantes();
+  }
+
+  @Override
+  public Estudiante agregarEstudiante(Estudiante nuevoEstudiante) {
+    return this.estudianteRepository.anadirEstudiante(nuevoEstudiante);
+  }
 }
 

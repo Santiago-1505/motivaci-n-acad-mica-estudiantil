@@ -32,5 +32,10 @@ public class EstudianteEnMemoriaRepositoryImpl implements EstudianteRepository {
 
         return estudiantes;
     }
+
+    @Override
+    public Estudiante anadirEstudiante( Estudiante nuevoEstudiante) {
+        return null;
+    }
 }
 
