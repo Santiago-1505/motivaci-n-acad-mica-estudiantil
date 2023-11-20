@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Agregar Estudiante</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -26,7 +26,7 @@
     <label for="departamento">Departamento de residencia:</label><br>
     <input type="text" name="departamento" id="departamento" class="form-control" ><br><br>
 
-    <label for="promedio">Promedio Acacdemico:</label><br>
+    <label for="promedio">Promedio Academico:</label><br>
     <input type="text" name="promedio" id="promedio" class="form-control" ><br><br>
 
     <label>Desea estudiar:</label><br>
@@ -74,7 +74,7 @@
             "ensenanzasAntiguas": seEnsenaDeManeraAntigua.value,
             "faltaDeRecursos": faltaDeRecursos.value,
             "deseaEstudiar": deseaEstudiar.value,
-            "promedio": promedio.value,
+            "promedio": parseFloat(promedio.value),
             "departamento": departamento.value
         }
 
