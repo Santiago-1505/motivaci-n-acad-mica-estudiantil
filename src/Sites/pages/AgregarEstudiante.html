@@ -15,41 +15,41 @@
 <body style="background-color:lightgray">
 <center>
     <h2>Agregar estudiante</h2>
-<form>
+    <form>
 
-    <label for="nombre">Nombre:</label><br>
-    <input type="text" name="nombre" id="nombre" class="form-control"><br><br>
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" name="nombre" id="nombre" class="form-control"><br><br>
 
-    <label for="edad">Edad:</label><br>
-    <input type="text" name="edad" id="edad" class="form-control"><br><br>
+        <label for="edad">Edad:</label><br>
+        <input type="text" name="edad" id="edad" class="form-control"><br><br>
 
-    <label for="departamento">Departamento de residencia:</label><br>
-    <input type="text" name="departamento" id="departamento" class="form-control" ><br><br>
+        <label for="departamento">Departamento de residencia:</label><br>
+        <input type="text" name="departamento" id="departamento" class="form-control" ><br><br>
 
-    <label for="promedio">Promedio Academico:</label><br>
-    <input type="text" name="promedio" id="promedio" class="form-control" ><br><br>
+        <label for="promedio">Promedio Academico:</label><br>
+        <input type="text" name="promedio" id="promedio" class="form-control" ><br><br>
 
-    <label>Desea estudiar:</label><br>
-    <input type="radio" name="DeseaEstudiar" id="sdEstudiar" value="false" class="form-check-input">
-    <label for="sdEstudiar">Si</label><br>
-    <input type="radio" name="DeseaEstudiar" id="ndEstudiar" value="true" class="form-check-input">
-    <label for="ndEstudiar">No</label><br><br>
+        <label>se enseña de manera antigua:</label><br>
+        <input type="radio" name="ManeraAntigua" id="dmAntigua" value="true" class="form-check-input">
+        <label for="dmAntigua">Si</label><br>
+        <input type="radio" name="ManeraAntigua" id="ndmAntigua" value="false" class="form-check-input">
+        <label for="ndmAntigua">No</label><br><br>
 
-    <label>se enseña de manera antigua:</label><br>
-    <input type="radio" name="ManeraAntigua" id="dmAntigua" value="true" class="form-check-input">
-    <label for="dmAntigua">Si</label><br>
-    <input type="radio" name="ManeraAntigua" id="ndmAntigua" value="false" class="form-check-input">
-    <label for="ndmAntigua">No</label><br><br>
+        <label>Falta de recursos:</label><br>
+        <input type="radio" name="faltaDeRecursos" id="fdRecursos" value="true" class="form-check-input">
+        <label for="dmAntigua">Si</label><br>
+        <input type="radio" name="faltaDeRecursos" id="nfdRecursos" value="false" class="form-check-input">
+        <label for="ndmAntigua">No</label><br><br>
 
-    <label>Falta de recursos:</label><br>
-    <input type="radio" name="faltaDeRecursos" id="fdRecursos" value="true" class="form-check-input">
-    <label for="dmAntigua">Si</label><br>
-    <input type="radio" name="faltaDeRecursos" id="nfdRecursos" value="false" class="form-check-input">
-    <label for="ndmAntigua">No</label><br><br>
+        <label>No Desea estudiar:</label><br>
+        <input type="radio" name="DeseaEstudiar" id="sdEstudiar" value="true" class="form-check-input">
+        <label for="sdEstudiar">Si</label><br>
+        <input type="radio" name="DeseaEstudiar" id="ndEstudiar" value="false" class="form-check-input">
+        <label for="ndEstudiar">No</label><br><br>
 
-    <input type="submit" value="Guardar" class="btn btn-primary" onclick="add();" class="btn btn-primary active">
-</form>
-<a href="../index.html" class="link-secondary">Volver al inicio</a>
+        <input type="submit" value="Guardar" class="btn btn-primary" onclick="add();" class="btn btn-primary active">
+    </form>
+    <a href="../index.html" class="link-secondary">Volver al inicio</a>
 </center>
 </body>
 </html>
@@ -71,10 +71,10 @@
         var nuevoEstudiante = {
             "nombre": nombre.value,
             "edad": edad.value,
-            "ensenanzasAntiguas": seEnsenaDeManeraAntigua.value,
+            "seUsanTecnicasDeEnsenansaAntiguas": seEnsenaDeManeraAntigua.value,
             "faltaDeRecursos": faltaDeRecursos.value,
-            "deseaEstudiar": deseaEstudiar.value,
-            "promedio": parseFloat(promedio.value),
+            "noLeGustaEstudiar": deseaEstudiar.value,
+            "promedio": promedio.value,
             "departamento": departamento.value
         }
 

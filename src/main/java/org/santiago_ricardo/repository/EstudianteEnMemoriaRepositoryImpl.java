@@ -1,9 +1,14 @@
 package org.santiago_ricardo.repository;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.santiago_ricardo.model.Estudiante;
 
 public class EstudianteEnMemoriaRepositoryImpl implements EstudianteRepository {
+    private List<Estudiante> estudianteList;
+    public EstudianteEnMemoriaRepositoryImpl(){
+        this.estudianteList = new ArrayList<>(devolverInformacionEstudiantes());
+    }
     @Override
     public List<Estudiante> devolverInformacionEstudiantes() {
 
@@ -35,7 +40,8 @@ public class EstudianteEnMemoriaRepositoryImpl implements EstudianteRepository {
 
     @Override
     public Estudiante anadirEstudiante( Estudiante nuevoEstudiante) {
-        return null;
+        estudianteList.add(nuevoEstudiante);
+        return nuevoEstudiante ;
     }
 }
 

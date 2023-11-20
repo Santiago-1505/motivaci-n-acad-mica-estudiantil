@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.santiago_ricardo.model.Estudiante;
 import org.santiago_ricardo.repository.EstudianteEnArchivoRepositoryImpl;
+import org.santiago_ricardo.repository.EstudianteEnMemoriaRepositoryImpl;
 import org.santiago_ricardo.service.EstudianteRecordService;
 import org.santiago_ricardo.service.EstudianteRecordServiceImpl;
 import org.springframework.http.HttpStatus;
@@ -32,6 +33,7 @@ public class ControladorEstudiante {
     public ResponseEntity<Estudiante> agregarEstudiante(@RequestBody Estudiante nuevoEstudiente){
         System.out.println("Añadiendo un estudiante :)");
         Estudiante estudiante = estudianteRecordService.agregarEstudiante(nuevoEstudiente );
+
         return ResponseEntity.status( HttpStatus.OK).body(estudiante);
     }
 }
